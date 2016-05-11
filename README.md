@@ -2,7 +2,7 @@
 
 This is my attempt to create a starter kit for Angular 1.5 that uses jspm and TypeScript.
 
-To start using this just clone this repository using
+To start using this, just clone this repository using
 ```
 git clone https://github.com/jchandra74/angular1.5-typescript-jspm-starter-kit.git
 ```
