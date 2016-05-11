@@ -3,7 +3,7 @@ interface ISampleService {
 }
 
 class SampleService implements ISampleService {
-    static $inject = [ "$http", "$q", "$log" ]
+    static $inject: Array<string> = [ "$http", "$q", "$log" ]
     
     constructor(
        private $http: ng.IHttpService,
