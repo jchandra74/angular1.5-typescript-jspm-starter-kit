@@ -1,0 +1,37 @@
+{
+  "name": "angular1.5-typescript-jspm-starter",
+  "version": "1.0.0",
+  "description": "Angular 1.5 Component with TypeScript and JSPM starter kit",
+  "scripts": {
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "lite": "lite-server",
+    "postinstall": "jspm install && typings install",
+    "jspm": "jspm",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings"
+  },
+  "keywords": [
+    "angular",
+    "1.5",
+    "component",
+    "typescript",
+    "jspm"
+  ],
+  "author": "Jimmy Chandra",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "jspm": "^0.16.34",
+    "lite-server": "^2.2.0",
+    "tslint": "^3.10.1",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1"
+  },
+  "jspm": {
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.5.5"
+    },
+    "devDependencies": {}
+  }
+}

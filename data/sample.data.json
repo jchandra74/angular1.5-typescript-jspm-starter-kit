@@ -1,0 +1,3 @@
+{
+    "message": "Hello, Angular 1.5. This text has been loaded using $http from /data/sample.data.json"
+}
