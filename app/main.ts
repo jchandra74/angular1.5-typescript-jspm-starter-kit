@@ -1,5 +1,5 @@
 import * as ng from "angular";
-import { MyAppComponent } from "./components/app/app.component";
+import { MyAppComponent } from "./components/my-app/my-app.component";
 import { SampleService } from "./services/sample.service";
 
 ng.module("myApp", [])

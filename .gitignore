@@ -3,3 +3,6 @@
 /typings
 /app/**/*.js
 /app/**/*.js.map
+/build.js
+/build.js.map
+/npm-debug.log

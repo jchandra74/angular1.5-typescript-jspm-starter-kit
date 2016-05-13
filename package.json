@@ -9,7 +9,9 @@
     "jspm": "jspm",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "typings": "typings"
+    "typings": "typings",
+    "bundle:prod": "jspm bundle app --minify --inject",
+    "bundle": "jspm bundle app --inject"
   },
   "keywords": [
     "angular",

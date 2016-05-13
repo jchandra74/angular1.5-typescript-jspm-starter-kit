@@ -31,7 +31,7 @@ class MyAppComponentController {
 
 let MyAppComponent = {
     controller: MyAppComponentController,
-    templateUrl: "./app/components/app/app.component.html"
+    templateUrl: "./app/components/my-app/my-app.component.html"
 };
 
 export { MyAppComponent }
