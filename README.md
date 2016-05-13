@@ -18,7 +18,7 @@ where *`MY_APP_FOLDER`* is the folder name for your new project.
 
 You'll need the followings installed:
 
-1. node and npm (go downloaded it from the web)
+1. node and npm (go [download](https://nodejs.org) it from the web or using your favorite package manager)
 
 2. jspm CLI (`npm i -g jspm`) *
 
