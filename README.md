@@ -14,12 +14,8 @@ git clone https://github.com/jchandra74/angular1.5-typescript-jspm-starter-kit.g
 </pre>
 where *`MY_APP_FOLDER`* is the folder name for your new project.
 
-<<<<<<< HEAD
-## Prerequisites
-=======
 ##Prerequisites
 
->>>>>>> 340900dcde8f7ce84b221e3df0ded74b6176edba
 You'll need the followings installed:
 
 1. node and npm (go [download](https://nodejs.org) it from the web or using your favorite package manager)
@@ -46,7 +42,6 @@ To re-enable live-reloading for script, run `jspm unbundle` to remove the bundli
 
 For more advanced bundling scenario, please read up on [jspm](https://github.com/jspm/jspm-cli).
 
-<<<<<<< HEAD
 ## Credits
 Most of package.json npm scripts have been shamelessly ripped from [angular.io getting started bits](https://angular.io/docs/ts/latest/quickstart.html)
 
@@ -56,7 +51,3 @@ Most of package.json npm scripts have been shamelessly ripped from [angular.io g
 |-----------:|:-------|
 | 2016-11-11 | Added support for RxJs 5.00 RC2. |
 
-=======
-##Credits
-Most of package.json npm scripts have been shamelessly ripped from [angular.io getting started bits](https://angular.io/docs/ts/latest/quickstart.html)
->>>>>>> 340900dcde8f7ce84b221e3df0ded74b6176edba
