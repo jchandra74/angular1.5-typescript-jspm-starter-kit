@@ -1,5 +1,7 @@
 import { ISampleService } from "./../../services/sample.service";
 import { ISampleData } from "./../../models/models";
+import * as ng from 'angular';
+import { Observable } from 'rxjs';
 
 class MyAppComponentController {
     message: string;
@@ -14,6 +16,17 @@ class MyAppComponentController {
     $onInit() {
         this.$log.info("In component initialization lifecycle hook...");
         this.loadMessage();
+
+        const myObs$ = Observable.from([1,2,3,4,5])
+            .map(n => n * 5);
+
+        const sub = myObs$.subscribe(
+            n => console.log('data', n),
+            e => console.error('error', e),
+            () => console.log('COMPLETED')
+        );
+
+        sub.unsubscribe();
     }
     
     loadMessage(): void {

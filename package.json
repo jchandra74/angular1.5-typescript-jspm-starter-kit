@@ -18,22 +18,28 @@
     "1.5",
     "component",
     "typescript",
-    "jspm"
+    "jspm",
+    "rxjs"
   ],
   "author": "Jimmy Chandra",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^2.0.0",
-    "jspm": "^0.16.34",
-    "lite-server": "^2.2.0",
-    "tslint": "^3.10.1",
-    "typescript": "^1.8.10",
-    "typings": "^0.8.1"
+    "@types/chai": "^3.4.34",
+    "concurrently": "^3.1.0",
+    "jspm": "^0.16.48",
+    "lite-server": "^2.2.2",
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.8",
+    "typings": "^2.0.0"
   },
   "jspm": {
     "dependencies": {
-      "angular": "github:angular/bower-angular@^1.5.5"
+      "angular": "github:angular/bower-angular@^1.5.5",
+      "rxjs": "npm:rxjs@^5.0.0-rc.2"
     },
     "devDependencies": {}
+  },
+  "dependencies": {
+    "rxjs": "^5.0.0-rc.2"
   }
 }
