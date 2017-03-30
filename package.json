@@ -24,22 +24,35 @@
   "author": "Jimmy Chandra",
   "license": "MIT",
   "devDependencies": {
+    "@types/angular": "^1.6.11",
     "@types/chai": "^3.4.34",
+    "@types/es6-shim": "^0.31.32",
+    "@types/jquery": "^2.0.41",
     "concurrently": "^3.1.0",
-    "jspm": "^0.16.48",
-    "lite-server": "^2.2.2",
-    "tslint": "^3.15.1",
-    "typescript": "^2.0.8",
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-rimraf": "^0.2.1",
+    "gulp-shell": "^0.6.3",
+    "gulp-watch": "^4.3.11",
+    "jspm": "^0.16.53",
+    "lite-server": "^2.3.0",
+    "run-sequence": "^1.2.2",
+    "rxjs": "^5.2.0",
+    "tslint": "^5.0.0",
+    "typescript": "^2.2.2",
     "typings": "^2.0.0"
   },
   "jspm": {
     "dependencies": {
-      "angular": "github:angular/bower-angular@^1.5.5",
-      "rxjs": "npm:rxjs@^5.0.0-rc.2"
+      "angular": "github:angular/bower-angular@^1.6.3",
+      "angular-animate": "github:angular/bower-angular-animate@^1.6.3",
+      "angular-sanitize": "github:angular/bower-angular-sanitize@^1.6.3",
+      "css": "github:systemjs/plugin-css@^0.1.33",
+      "jquery": "npm:jquery@^3.2.1",
+      "rxjs": "npm:rxjs@^5.2.0"
     },
     "devDependencies": {}
   },
-  "dependencies": {
-    "rxjs": "^5.0.0-rc.2"
-  }
+  "dependencies": {}
 }

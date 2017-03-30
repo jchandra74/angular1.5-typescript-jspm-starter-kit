@@ -1,4 +1,13 @@
 {
-    "typescript.check.workspaceVersion": false,
-    "typescript.check.tscVersion": false
+    "typescript.check.tscVersion": false,
+    "files.exclude": {
+        "app/**/*.js": true,
+        "app/**/*.map": true,
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true
+    }
+,
+"vsicons.presets.angular": false
 }

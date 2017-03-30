@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My App</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="jspm_packages/system.js"></script>
-        <script src="config.js"></script>
-        <script>
-            System.import("app")
-                .catch(function(err) { console.error(err) });
-        </script>
-    </head>
-    <body>
-        <div id="appContainer">
-            <my-app>Loading...</my-app>
-        </div>
-    </body>
+
+<head>
+    <title>My App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <app>Loading...</app>
+
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script src="jspm_packages/system-polyfills.js"></script>
+    <script>
+        var systemLocate = System.locate;
+
+        System.cacheBust = '?bust=' + Date.now();
+
+        // Cache buster
+        var bustList = {
+            "/wwwroot/js/feature1.min.js": "/wwwroot/js/feature1.min.js" + System.cacheBust
+        };
+
+        System.locate = function (load) {
+            var System = this;
+            return Promise.resolve(systemLocate.call(this, load))
+                .then(function (address) {
+
+                    var prefix = address.slice(0, address.indexOf("/wwwroot"));
+                    var suffix = address.slice(address.indexOf("/wwwroot"));
+                    var match = bustList[suffix];
+
+                    if (!match) return address;
+
+                    var finalAddress = prefix + match;
+                    console.log("BUSTED", finalAddress);
+                    return finalAddress;
+                });
+        };
+
+        System.import("app/feature1")
+            .catch(function (err) { console.error(err) });
+    </script>
+
+</body>
+
 </html>
