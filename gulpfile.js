@@ -9,29 +9,18 @@ const gulp = require("gulp"),
     escapeShellArgs = (cmd) => "'" + cmd.replace(/\'/g,"'\\''") + "'",
 
     clientApp = "./app/",
-
-    config = {
-        feature1: {
-            htmltemplates: clientApp + "feature1/components/**/*.html",
-            templateCache: {
-                file: "templates.js",
-                options: {
-                    module: "ng",
-                    root: "/app/feature1/components",
-                    standAlone: false
-                }
-            }
-        }
-    },
-
-    bundleNgTemplates = (baseSrc, bundlePrefix) => gulp
-        .src(baseSrc.htmltemplates)
+    
+    bundleNgTemplatesConvention = (featureName) => gulp
+        .src(`${clientApp}${featureName}/components/**/*.html`)
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(templateCache(
-            baseSrc.templateCache.file,
-            baseSrc.templateCache.options
-        ))
-        .pipe(gulp.dest(`${clientApp}${bundlePrefix}/tmp/`));
+            "templates.js",
+            {
+                module: "ng",
+                root: `/app/${featureName}/components`,
+                standalone: false
+            }))
+        .pipe(gulp.dest(`${clientApp}${featureName}/tmp/`));
 
 gulp.task("clean", _ => gulp
     .src([
@@ -42,7 +31,7 @@ gulp.task("clean", _ => gulp
 
 gulp.task("typescript", gulpShell.task([ "tsc" ]));
 
-gulp.task("feature1.templatecache", _ => bundleNgTemplates(config.feature1, "feature1"));
+gulp.task("feature1.templatecache", _ => bundleNgTemplatesConvention("feature1"));
 
 gulp.task("feature1.template.build", [ "feature1.templatecache" ]);
 

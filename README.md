@@ -24,9 +24,6 @@ You'll need the followings installed:
 
 3. TypeScript CLI (`npm i -g typescript`) *
 
-4. Typings CLI (`npm i -g typings`) *
-
-
 \* = *once you have node and npm*
 
 Simply run `npm install` afterward to restore all the neccessary dependencies.
@@ -50,4 +47,4 @@ Most of package.json npm scripts have been shamelessly ripped from [angular.io g
 | Date       |Details |
 |-----------:|:-------|
 | 2016-11-11 | Added support for RxJs 5.00 RC2. |
-
+| <nobr>2017-04-30</nobr> | Removed requirement for typings since we'll be using @types instead.<br>Refactored out RxJs example to use recommended practice when using RxJS piecemeal for bundling optimization.<br>Added $onDestroy lifecycle hook that is used to dispose the RxJS subscription |
