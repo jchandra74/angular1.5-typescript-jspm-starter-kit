@@ -20,7 +20,7 @@ System.config({
     "angular-sanitize": "github:angular/bower-angular-sanitize@1.6.4",
     "css": "github:systemjs/plugin-css@0.1.33",
     "jquery": "npm:jquery@3.2.1",
-    "rxjs": "npm:rxjs@5.3.0",
+    "rxjs": "npm:rxjs@5.4.0",
     "github:angular/bower-angular-animate@1.6.4": {
       "angular": "github:angular/bower-angular@1.6.4"
     },
@@ -60,7 +60,7 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "vm": "github:jspm/nodelibs-vm@0.1.0"
     },
-    "npm:rxjs@5.3.0": {
+    "npm:rxjs@5.4.0": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.1",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "symbol-observable": "npm:symbol-observable@1.0.4"

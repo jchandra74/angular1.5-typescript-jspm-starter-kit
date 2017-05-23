@@ -3,18 +3,17 @@
   "version": "1.0.0",
   "description": "Angular 1.5 Component with TypeScript and JSPM starter kit",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "start": "tsc && gulp template.build && concurrently \"npm run tsc:w\" \"gulp watch:template\" \"npm run lite\" ",
     "lite": "lite-server",
-    "postinstall": "jspm install && typings install",
+    "postinstall": "jspm install",
     "jspm": "jspm",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "typings": "typings",
     "bundle:prod": "jspm bundle app --minify --inject",
     "bundle": "jspm bundle app --inject"
   },
   "keywords": [
-    "angular",
+    "angularjs",
     "1.5",
     "component",
     "typescript",
@@ -24,7 +23,7 @@
   "author": "Jimmy Chandra",
   "license": "MIT",
   "devDependencies": {
-    "@types/angular": "^1.6.11",
+    "@types/angular": "^1.6.4",
     "@types/chai": "^3.4.34",
     "@types/es6-shim": "^0.31.32",
     "@types/jquery": "^2.0.41",
@@ -38,23 +37,22 @@
     "jspm": "^0.16.53",
     "lite-server": "^2.3.0",
     "run-sequence": "^1.2.2",
-    "rxjs": "^5.3.0",
+    "rxjs": "^5.4.0",
     "tslint": "^5.0.0",
-    "typescript": "^2.2.2",
-    "typings": "^2.0.0"
+    "typescript": "^2.3.3"
   },
   "jspm": {
     "dependencies": {
-      "angular": "github:angular/bower-angular@^1.6.3",
-      "angular-animate": "github:angular/bower-angular-animate@^1.6.3",
-      "angular-sanitize": "github:angular/bower-angular-sanitize@^1.6.3",
+      "angular": "github:angular/bower-angular@^1.6.4",
+      "angular-animate": "github:angular/bower-angular-animate@^1.6.4",
+      "angular-sanitize": "github:angular/bower-angular-sanitize@^1.6.4",
       "css": "github:systemjs/plugin-css@^0.1.33",
       "jquery": "npm:jquery@^3.2.1",
-      "rxjs": "npm:rxjs@^5.2.0"
+      "rxjs": "npm:rxjs@^5.4.0"
     },
     "devDependencies": {}
   },
   "dependencies": {
-    "rxjs": "^5.3.0"
+    "rxjs": "^5.4.0"
   }
 }
