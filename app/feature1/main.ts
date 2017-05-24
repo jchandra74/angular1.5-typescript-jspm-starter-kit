@@ -1,6 +1,8 @@
 import * as angular from "angular";
 import { IModule } from "angular";
 
+import { NgModule } from "./../core/angular-shim";
+
 // remove any that are not needed and add more if you need other third party modules.
 import "jquery";
 import "angular-animate";
@@ -19,8 +21,8 @@ let app: IModule = angular.module("myApp", []);
 // register necessary things with this angular module
 
 app
-    .component(AppComponent.selector, AppComponent)
-    .service("sampleService", SampleService);
+    .component(AppComponent["selector"], AppComponent)
+    .service(SampleService["name"], SampleService);
 
 // bootstrap this module to DOM element
 

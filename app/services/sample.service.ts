@@ -1,6 +1,8 @@
 import * as angular from "angular";
 import { IHttpPromise, ILogService, IQService, ITimeoutService, IHttpService } from "angular";
 
+import { Injectable } from "./../core/angular-shim";
+
 import env from "./../environment";
 import { DEV_HTTP_LONG_DELAY_MS, DEV_HTTP_SHORT_DELAY_MS } from "./../environment";
 
@@ -9,8 +11,10 @@ interface ISampleService {
     saveData(data: any): IHttpPromise<any>;
 }
 
+@Injectable
 class SampleService implements ISampleService {
-    static Name: string = "sampleSvc";
+
+    public name: string;
 
     static $inject: Array<string> = [ "$http", "$q", "$log", "$timeout" ]    
     constructor(
@@ -18,10 +22,12 @@ class SampleService implements ISampleService {
        private $q: IQService,
        private $log: ILogService,
        private $timeout: ITimeoutService
-    ) { }
+    ) { 
+        this.name = this.constructor["name"];
+    }
     
     getData(): IHttpPromise<any> {
-        this.$log.info(`[${SampleService.Name}] Getting data...`);
+        this.$log.info(`[${this.name}] Getting data...`);
 
         let httpPromise: IHttpPromise<any>;
 
@@ -43,7 +49,7 @@ class SampleService implements ISampleService {
     }
 
     saveData(data: any) : IHttpPromise<any> {
-        this.$log.info(`[${SampleService.Name}] Saving data...`);
+        this.$log.info(`[${this.name}] Saving data...`);
 
         let httpPromise: IHttpPromise<any>;
 

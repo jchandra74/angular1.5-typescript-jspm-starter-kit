@@ -1,29 +1,36 @@
-import { Component } from "./../../../core/Component";
+import { Component, Inject } from "./../../../core/angular-shim";
 import { ILogService } from "angular";
-import { ISampleService } from "./../../../services/sample.service";
+
+import { ISampleService, SampleService } from "./../../../services/sample.service";
 import { ISampleData } from "./../../../models/models";
 
+// piece-meal imports for rxjs as recommended practice
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import "rxjs/add/observable/from";
 import "rxjs/add/operator/map";
 
-class AppComponentController {
+@Inject("$log", SampleService)
+@Component({
+    selector: "app",
+    templateUrl: "/app/feature1/components/app/app.component.html"
+})
+export class AppComponent {
 
+    name: string;
     message: string;
 
     subscription: Subscription;
 
-    static ComponentName: string = "AppComponent";
-
-    static $inject: Array<string> = [ "$log", "sampleService" ];
     constructor(
         private $log: ILogService,
         private sampleService: ISampleService
-    ) { }
+    ) { 
+        this.name = this.constructor["name"];
+    }
     
     $onInit(): void {
-        this.$log.info(`[${AppComponentController.ComponentName}] Initializing Controller...`);
+        this.$log.info(`[${this.name}] Initializing Controller...`);
         
         this.loadMessage();
 
@@ -45,7 +52,7 @@ class AppComponentController {
     }
     
     loadMessage(): void {
-        this.$log.info(`[${AppComponentController.ComponentName}] Loading message...`);
+        this.$log.info(`[${this.name}] Loading message...`, this);
 
         this.sampleService
             .getData()
@@ -54,20 +61,12 @@ class AppComponentController {
     }
 
     onDataReceived(data: ISampleData): void {
-        this.$log.info(`[${AppComponentController.ComponentName}] onDataReceived`, data);
+        this.$log.info(`[${this.name}] onDataReceived`, data);
         this.message = data.message;
     }
 
     handleError(err: any): void {
-        this.$log.info(`[${AppComponentController.ComponentName}] handleError`, err);
+        this.$log.info(`[${this.name}] handleError`, err);
         alert(err);
     }
 }
-
-let AppComponent: Component = {
-    selector: "app",
-    controller: AppComponentController,
-    templateUrl: "/app/feature1/components/app/app.component.html"
-};
-
-export { AppComponent }
