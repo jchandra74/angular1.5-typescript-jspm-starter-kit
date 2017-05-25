@@ -47,4 +47,5 @@ Most of package.json npm scripts have been shamelessly ripped from [angular.io g
 | Date       |Details |
 |-----------:|:-------|
 | 2016-11-11 | Added support for RxJs 5.00 RC2. |
-| <nobr>2017-04-30</nobr> | Removed requirement for typings since we'll be using @types instead.<br>Refactored out RxJs example to use recommended practice when using RxJS piecemeal for bundling optimization.<br>Added $onDestroy lifecycle hook that is used to dispose the RxJS subscription.<br>Updated all JSPM packages |
+| <nobr>2017-04-30</nobr> | Removed requirement for typings since we'll be using @types instead.<br>Refactored out RxJs example to use recommended practice when using RxJS piecemeal for bundling optimization.<br>Added $onDestroy lifecycle hook that is used to dispose the RxJS subscription.<br>Updated all JSPM packages. |
+|2017-05-25| Added angular-shim decorator so the coding style is even closer to Angular if we need to migrate in the future. |
