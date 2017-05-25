@@ -1,7 +1,7 @@
 import * as angular from "angular";
 import { IHttpPromise, ILogService, IQService, ITimeoutService, IHttpService } from "angular";
 
-import { Injectable } from "./../core/angular-shim";
+import { Inject, Injectable } from "./../core/angular-shim";
 
 import env from "./../environment";
 import { DEV_HTTP_LONG_DELAY_MS, DEV_HTTP_SHORT_DELAY_MS } from "./../environment";
@@ -11,21 +11,22 @@ interface ISampleService {
     saveData(data: any): IHttpPromise<any>;
 }
 
-@Injectable
+@Inject("$http", "$q", "$log", "$timeout")
+@Injectable()
 class SampleService implements ISampleService {
 
     public name: string;
 
-    static $inject: Array<string> = [ "$http", "$q", "$log", "$timeout" ]    
     constructor(
        private $http: IHttpService,
        private $q: IQService,
        private $log: ILogService,
        private $timeout: ITimeoutService
-    ) { 
+    ) {
+        // tslint:disable-next-line:no-string-literal
         this.name = this.constructor["name"];
     }
-    
+
     getData(): IHttpPromise<any> {
         this.$log.info(`[${this.name}] Getting data...`);
 
@@ -39,7 +40,7 @@ class SampleService implements ISampleService {
             // real API Url endpoint here.
             httpPromise = this.$http.get("/api/data/blah");
         }
-        
+
         return httpPromise
             .then(({data}) => data)
             .catch(err => {
@@ -48,13 +49,13 @@ class SampleService implements ISampleService {
             });
     }
 
-    saveData(data: any) : IHttpPromise<any> {
+    saveData(data: any): IHttpPromise<any> {
         this.$log.info(`[${this.name}] Saving data...`);
 
         let httpPromise: IHttpPromise<any>;
 
         if (env !== "PRODUCTION") {
-
+            // do something here that is production code...
         } else {
             httpPromise = this.$timeout(DEV_HTTP_SHORT_DELAY_MS)
                 .then( _ => this.$http.put("/api/data/blah", angular.toJson(data)));
@@ -69,4 +70,4 @@ class SampleService implements ISampleService {
     }
 }
 
-export { ISampleService, SampleService }
+export { ISampleService, SampleService };
