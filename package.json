@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Angular 1.5 Component with TypeScript and JSPM starter kit",
   "scripts": {
-    "start": "tsc && gulp template.build && concurrently \"npm run tsc:w\" \"gulp watch:template\" \"npm run lite\" ",
+    "start": "tsc && gulp template.build && jspm unbundle && concurrently \"npm run tsc:w\" \"gulp watch:template\" \"npm run lite\" ",
     "lite": "lite-server",
     "postinstall": "jspm install",
     "jspm": "jspm",
