@@ -1,11 +1,17 @@
 import * as angular from "angular";
 import { IModule } from "angular";
 
+function kebabToCamel(s: string): string {
+    return s.replace(/-\w/g, m => m[1].toUpperCase());
+}
+
 function Component(options: any): any {
     return function(target: any): any {
         var component: any = {...options};
         // tslint:disable-next-line:no-string-literal
         component["controller"] = target;
+        // tslint:disable-next-line:no-string-literal
+        component["selector"] = kebabToCamel(component["selector"]);
         return component;
     };
 }

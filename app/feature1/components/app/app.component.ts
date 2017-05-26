@@ -12,7 +12,7 @@ import "rxjs/add/operator/map";
 
 @Inject("$log", SampleService)
 @Component({
-    selector: "app",
+    selector: "my-app",
     templateUrl: "/app/feature1/components/app/app.component.html"
 })
 export class AppComponent {
